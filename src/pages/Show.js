@@ -29,7 +29,7 @@ function Show(props) {
   return (
     <div className="cheese">
       <h1>{onecheese.name}</h1>
-      <h2>{onecheese.title}</h2>
+      <h2>{onecheese.countryOfOrigin}</h2>
       <img src={onecheese.image} alt={onecheese.name} />
       
       <button onClick={removeCheese} id="delete">Delete</button>
@@ -51,9 +51,9 @@ function Show(props) {
         />
         <input 
         type="text"
-        value={editForm.title}
-        name="title"
-        placeholder="title"
+        value={editForm.countryOfOrigin}
+        name="countryOfOrigin"
+        placeholder="countryOfOrigin"
         onChange={handleChange}
         />
         <input type="submit" value="Update Cheese"/>

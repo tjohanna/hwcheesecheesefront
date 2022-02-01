@@ -15,24 +15,24 @@ const getCheese = async ()=>{
     setCheese(data)
 }
 
-const createCheese = async (typeCheese) =>{
+const createCheese = async (singleCheese) =>{
     await fetch(URL, {
         method: "post",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(typeCheese),
+        body: JSON.stringify(singleCheese),
     })
     getCheese()
 }
 
-const updateCheese = async (typeCheese, id) =>{
+const updateCheese = async (singleCheese, id) =>{
     await fetch(URL + id, {
         method: "put",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(typeCheese)
+        body: JSON.stringify(singleCheese)
     })
     getCheese()
 }
@@ -61,8 +61,6 @@ useEffect(()=> getCheese(), [])
                 />
             )}
             />
-                
-            
         </Switch>
     </main>
         )

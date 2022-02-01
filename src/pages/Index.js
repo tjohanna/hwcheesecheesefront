@@ -3,9 +3,9 @@ import {Link} from "react-router-dom"
 
 function Index(props) {
     const [newForm, setNewForm] = useState({
-        name: "",
-        image: "",
-        title: ""
+      name: "",
+      countryOfOrigin: "",
+      image: ""
     })
     const handleChange = (event) => {
         setNewForm({ ...newForm, [event.target.name]: event.target.value})
@@ -15,18 +15,18 @@ function Index(props) {
         event.preventDefault()
         props.createCheese(newForm)
         setNewForm({
-            name: "",
-            image: "",
-            title: ""
+          name: "",
+          countryOfOrigin: "",
+          image: ""
         })
     }
     
   const loaded = () => {
-    return props.cheese.map((typeCheese) => (
-      <div key={typeCheese._id} className="typeCheese">
-        <Link to={`/cheese/${typeCheese._id}`}><h1>{typeCheese.name}</h1></Link>
-        <img src={typeCheese.image} alt={typeCheese.name} />
-        <h3>{typeCheese.title}</h3>
+    return props.cheese.map((singleCheese) => (
+      <div key={singleCheese._id} className="singleCheese">
+        <Link to={`/cheese/${singleCheese._id}`}><h1>{singleCheese.name}</h1></Link>
+        <img src={singleCheese.image} alt={singleCheese.name} />
+        <h3>{singleCheese.countryOfOrigin}</h3>
       </div>
     ));
   };
@@ -53,9 +53,9 @@ function Index(props) {
         />
         <input
           type="text"
-          value={newForm.title}
-          name="title"
-          placeholder="title"
+          value={newForm.countryOfOrigin}
+          name="countryOfOrigin"
+          placeholder="Country of Origin"
           onChange={handleChange}
         />
         <input type="submit" value="Create Cheese" />
